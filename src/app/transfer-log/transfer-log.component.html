@@ -1,0 +1,24 @@
+<div class="cover"></div>
+<div class="tl">TRANSACTION LOG</div>
+<div class="transaction-log"></div>
+
+<div class="log-container">
+  <table>
+    <tr>
+      <th>name</th>
+      <th>Amount</th>
+      <th>Date</th>
+      <th>bankAccount</th>
+      <th>cin</th>
+      <th>rib</th>
+    </tr>
+    <tr *ngFor="let entry of transactionLogEntries">
+      <td>{{ entry.name }}</td>
+      <td>{{ entry.amount }}</td> 
+      <td>{{ entry.Date | date: 'short' }}</td>
+      <td>{{ entry.bankAccount?.id || 'N/A' }}</td> <!-- Afficher 'N/A' si bankAccount est null -->
+      <td>{{ entry.cin }}</td>
+      <td>{{ entry.rib }}</td>
+    </tr>
+  </table>
+</div>

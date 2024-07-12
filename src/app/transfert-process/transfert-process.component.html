@@ -1,0 +1,27 @@
+<!-- <h1>TRANSFER MONEY</h1>
+
+<div class="all_users">
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>BALANCE</th>
+        </tr>
+        <tr *ngFor="let user of users">
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.amount }}</td>
+        </tr>
+    </table>
+</div>
+
+<form class="transferprocess" (ngSubmit)="transferMoney()" #transferForm="ngForm">
+    <select id="select" name="to" required [(ngModel)]="selectedUserId">
+        <option disabled selected>TRANSFER MONEY TO</option>
+        <option *ngFor="let user of users" [value]="user.id">{{ user.name }} (CURRENT BALANCE: {{ user.amount }})</option>
+    </select>
+    <input type="number" name="credit" placeholder="AMOUNT" required [(ngModel)]="transferAmount">
+    <button type="submit">TRANSFER</button>
+</form> -->

@@ -1,0 +1,105 @@
+<script src="https://kit.fontawesome.com/095e7acecf.js" crossorigin="anonymous"></script>
+
+<nav>
+    <div class="sidebar">
+        <ul class="sidebar_items">
+            <li class="item ham">
+                <i class="fas fa-bars"></i> <!-- Icône de menu hamburger -->
+            </li>
+            <li class="item">
+                <a href="#section1"><span class="nombres">Create account demandes</span></a>
+            </li>
+            <li class="item">
+                <a href="#section2"><span class="nombres">Modifie account demandes</span></a>
+            </li>
+            <li class="item">
+                <a href="#section3"><span class="nombres">Desactivate account demandes</span></a>
+            </li>
+        </ul>
+        <ul class="logout">
+            <li class="item">
+                <a href="home">
+                    <span class="nombres">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="table-container" style="margin-left: 250px;">
+    <h2 id="section1">Create Account Requests</h2>
+    <table id="table1" class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>John Doe</td>
+                <td>john.doe@example.com</td>
+                <td>123456789</td>
+                <td>
+                    <button class="btn btn-accept">Accept</button>
+                    <button class="btn btn-refuse">Refuse</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="section2">Modify Account Requests</h2>
+    <table id="table2" class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Account ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Modification Details</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>12345</td>
+                <td>Jane Smith</td>
+                <td>Change phone number to 987654321</td>
+                <td>
+                    <button class="btn btn-accept">Accept</button>
+                    <button class="btn btn-refuse">Refuse</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2 id="section3">Deactivate Account Requests</h2>
+    <table id="table3" class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Account ID</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Reason for Deactivation</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>67890</td>
+                <td>Robert Johnson</td>
+                <td>Account inactivity</td>
+                <td>
+                    <button class="btn btn-accept">Accept</button>
+                    <button class="btn btn-refuse">Refuse</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

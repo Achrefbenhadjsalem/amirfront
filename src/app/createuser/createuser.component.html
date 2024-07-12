@@ -1,0 +1,63 @@
+<div class="create">
+  <h1>Create User</h1>
+
+  <div class="cover"></div>
+  <div class="createUser">
+    <div class="userimg">
+      <img src="https://www.okeyooptions.com/img/undraw_male_avatar_323b.svg" alt="user image">
+    </div>
+    <div class="userdata">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="name" placeholder="Full Name" formControlName="name" class="form-control" />
+                  <label class="form-label" for="name">Full Name</label>
+                  <div *ngIf="userForm.get('name')!.errors && userForm.get('name')!.touched" class="text-danger">
+                    Full Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="form-outline">
+                  <input type="text" id="phone" placeholder="Phone" formControlName="phone" class="form-control" />
+                  <label class="form-label" for="phone">Phone</label>
+                  <div *ngIf="userForm.get('phone')!.errors && userForm.get('phone')!.touched" class="text-danger">
+                    Phone is required
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="form-outline mb-4">
+              <input type="email" id="email" placeholder="Email" formControlName="email" class="form-control" />
+              <label class="form-label" for="email">Email</label>
+              <div *ngIf="userForm.get('email')!.errors && userForm.get('email')!.touched" class="text-danger">
+                Please enter a valid email
+              </div>
+            </div>
+          
+            <div class="form-outline mb-4">
+              <input type="password" id="password" placeholder="Password" formControlName="password" class="form-control" />
+              <label class="form-label" for="password">Password</label>
+              <div *ngIf="userForm.get('password')!.errors && userForm.get('password')!.touched" class="text-danger">
+                Password is required (minimum 5 characters)
+              </div>
+            </div>
+          
+            <div class="form-outline mb-4">
+              <input type="password" id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control" />
+              <label class="form-label" for="confirmPassword">Confirm Password</label>
+              <div *ngIf="userForm.get('confirmPassword')!.errors && userForm.get('confirmPassword')!.touched" class="text-danger">
+                Please confirm your password
+              </div>
+              <div *ngIf="userForm.get('confirmPassword')?.errors?.['passwordMismatch'] && userForm.get('confirmPassword')?.touched" class="text-danger">
+                Passwords do not match
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">Submit</button>
+          </form>      
+    </div>
+  </div>
+</div>

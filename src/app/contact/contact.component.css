@@ -1,0 +1,176 @@
+/* Style général de la page */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+    font-family: Arial, sans-serif;
+  }
+  
+  .cover {
+    width: 100%;
+    height: 100vh;
+    background: url('/assets/Image/home.jpg');
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+  }
+  
+ 
+  
+  .contact-container {
+    width: 70%; /* Limite la largeur du contenu */
+    box-sizing: border-box;
+    position: relative; /* Ajout de position relative pour empiler correctement les éléments */
+    z-index: 1; /* Assure que le contenu soit au-dessus de l'image de fond */
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white; /* Couleur du texte */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.07);
+    margin: 50px auto;
+    padding: 20px;
+    display: flex; /* Utilisation de flexbox pour centrer verticalement */
+    flex-direction: column; /* Permet au contenu de s'aligner en colonne */
+    align-items: center; /* Centrage vertical */
+    margin-top: 5px;
+  }
+
+  .title {
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: -3%;
+    font-size: 230%;
+    font-weight: bold;
+  }
+  .message-form {
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 1px;
+    padding: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .label {
+    color: white;
+  }
+  
+  .input {
+    width: 100%;
+    color: white;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 2px solid white;
+    outline: none;
+    background-color: transparent;
+  }
+  
+  .button {
+    padding: 10px 50px;
+    font-size: 17px;
+    color: white;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, transparent 50%, rgb(3, 180, 3) 50%);
+    background-size: 200%;
+    background-position: left;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: .3s;
+    margin-top: 20px;
+  }
+  
+  .button:hover {
+    background-position: right;
+  }
+  
+  .text-danger {
+    color: red;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+  }
+  
+  .subject-dropdown {
+    position: relative;
+  }
+  
+  .subject-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: calc(100% - 4px); /* Ajustement pour correspondre à la largeur du champ de sujet */
+    background-color: rgba(100, 100, 100, 0.8); /* Fond gris avec une opacité de 0.8 */
+    list-style: none;
+    padding: 10px 0;
+    margin: 0;
+    border-radius: 5px;
+    display: none;
+    z-index: 10; /* Assure que les options soient au-dessus des autres éléments */
+  }
+  
+  .subject-options li {
+    padding: 8px 20px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subject-options li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .subject-dropdown input:focus + .subject-options {
+    display: block;
+  }
+  
+  .custom-button {
+    padding: 10px 50px;
+    font-size: 14px;
+    color: white;
+    letter-spacing: 1px;
+    background: linear-gradient(to right, transparent 50%, rgb(3, 180, 3) 50%);
+    background-size: 200%;
+    background-position: left;
+    border: 2px solid white;
+    cursor: pointer;
+    transition: .3s;
+  }
+  
+  .custom-button:hover {
+    background-position: right;
+  }
+  
+  .custom-select-container {
+    position: relative;
+    display: inline-block;
+    width: auto;
+  }
+  
+  .custom-select-container::after {
+    content: '\25BC';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: white;
+  }
+  
+  select.custom-button {
+    width: 100%;
+    padding-right: 60px; /* Space for the dropdown arrow */
+  }
+  
+  select.custom-button option {
+    color: black;
+    background: white;
+  }
+  
+  /* Pour s'assurer que le conteneur puisse défiler */
+  body {
+    height: auto; /* Permettre au body de s'ajuster à la taille du contenu */
+    overflow-y: scroll; /* Permettre le défilement vertical */
+  }
+  

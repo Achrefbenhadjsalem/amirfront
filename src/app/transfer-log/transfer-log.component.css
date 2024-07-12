@@ -1,0 +1,60 @@
+.tl {
+    width: 100%;
+}
+
+.tl {
+    color: white;
+    letter-spacing: 2px;
+    text-align: center;
+    margin-top: 4%;
+    font-size: 230%;
+    font-weight: bold;
+    }
+
+.log-container {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.4);
+    max-width: 700px;
+    align-items: center;
+    margin: 2% auto;
+    padding: 50px 0 50px 50px;
+    border: 2px solid white;
+}
+
+.log-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-right: 50px;
+}
+
+.log-container th,
+.log-container td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.log-container th {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.log-container tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.log-container tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Transaction log mobile view */
+
+.cover {
+    width: 100%;
+    height: 100vh;
+    background: url('/assets/Image/home.jpg');
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}

@@ -1,0 +1,148 @@
+/* navbar.component.css */
+.nevbar {
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    z-index: 5;
+    display: flex;
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    transition: .3s;
+}
+
+.logo a h1 {
+    margin: 15px 100px;
+}
+
+.logo a h1 span {
+    color: rgb(1, 161, 1);
+}
+
+.menu {
+    flex: 1;
+    text-align: right;
+    margin-top: 10px;
+    margin-right: 100px;
+}
+
+.menu ul li {
+    list-style: none;
+    display: inline-block;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    margin-left: 30px;
+    font-size: 17px;
+    transition: 0.5s;
+    position: relative;
+}
+
+.menu ul li a:hover {
+    color: rgb(1, 161, 1);
+}
+
+.menu ul li a span {
+    color: #c3073f;
+}
+
+.menuicon {
+    margin: auto;
+    color: rgba(255, 255, 255, 0.5);
+    display: none;
+}
+
+.menuicon i span {
+    font-weight: 600;
+}
+
+.topspace {
+    height: 80px;
+}
+
+.menu .dropdown .btn-primary {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 17px;
+    padding: 10px 20px;
+    margin-left: 30px;
+    margin-top: -5px;
+}
+
+.menu .dropdown-menu {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.menu .dropdown-menu .dropdown-item {
+    background-color: transparent;
+    color: white;
+}
+
+.menu .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: rgb(1, 161, 1);
+}
+
+/* Style for the logged-in username and logout link */
+.menu ul li span.white-text, 
+.menu ul li a.white-text {
+    color: white; /* Set text color to white */
+    cursor: pointer; /* Change cursor to pointer */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+.menu ul li span.white-text:hover, 
+.menu ul li a.white-text:hover {
+    color: rgb(1, 161, 1); /* Change color to green on hover */
+}
+
+/* navbar mobile view */
+@media only screen and (max-width: 700px) {
+    .nevbar {
+        background-color: black;
+    }
+
+    .logo a h1 {
+        margin: 15px 12px;
+    }
+
+    .menu {
+        text-align: right;
+        margin-right: 0px;
+        position: absolute;
+        background-color: black;
+        width: 100%;
+        top: 49px;
+        max-height: 0px;
+        overflow: hidden;
+        box-shadow: 0px 10px 12px -1px rgb(0 0 0 / 10%);
+        transition: .5s;
+    }
+
+    .menu ul li {
+        list-style: none;
+        display: block;
+        margin: 25px 40px 35px auto;
+    }
+
+    .menu ul li a {
+        text-decoration: none;
+        color: white;
+        margin-left: 0px;
+        font-size: 15px;
+        transition: 0.5s;
+        font-size: 18px;
+    }
+
+    .menuicon {
+        display: block;
+        margin-right: 30px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+}

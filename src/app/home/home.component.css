@@ -1,0 +1,72 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+body {
+    color: white;
+    /* text-align: center; */
+}
+/**************  background cover image  ***************/
+.cover {
+    width: 100%;
+    height: 100vh;
+    background: url('/assets/Image/home.jpg');
+    background-size: cover;
+    position: fixed;
+    top: 0;
+    z-index: -1;
+}
+
+.container {
+    max-width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+}
+.welcome {
+    color: white;
+    margin-top: -4px;
+}
+.welcome h3 {
+    font-size: 30px;
+}
+.welcome h1 {
+    font-size: 40px;
+}
+.allbtns {
+    max-width: 400px;
+    margin: 70px auto 0;
+    
+}
+.allbtns a {
+    text-decoration: none;
+}
+.allbtns a button {
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    padding: 15px;
+    margin: 6px 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 2px solid white;
+    transition: .3s;
+    background: linear-gradient(to right , transparent 50% , rgb(3, 180, 3) 50%);
+    background-size: 200%;
+    background-position: left;
+    font-size: 15px;
+    letter-spacing: 1px
+}
+.allbtns a button:hover {
+    box-shadow:0px 0px 3px 1px white;
+    background-position: right;
+    
+}
+.allbtns a button i {
+    float: left;
+}
+@media only screen and (max-width : 900px ){
+    .allbtns {
+        margin: 40px auto 0;
+    }
+}

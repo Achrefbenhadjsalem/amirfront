@@ -1,0 +1,20 @@
+<h1>Login</h1>
+<div class="login-container">
+  <div class="cover"></div>
+  <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-outline mb-4">
+      <input class="form-control" type="text" id="email" placeholder="Email" formControlName="email">
+      <label class="form-label" for="email">Email</label>
+    </div>
+    <div class="form-outline mb-4">
+      <input class="form-control" type="password" id="password" placeholder="Password" formControlName="password">
+      <label class="form-label" for="password">Password</label>
+
+    </div>
+    <button type="submit" class="btn btn-primary btn-block mb-4">Login</button>
+    <div class="text-danger">{{ errorMessage }}</div>
+  </form>
+  <div class="register-link">
+    <a routerLink="/create-user">Create an account</a>
+  </div>
+</div>

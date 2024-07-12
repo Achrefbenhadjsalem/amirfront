@@ -1,0 +1,37 @@
+<!-- navbar.component.html -->
+<div class="navbar" id="navbar">
+  <div class="logo">
+    <a routerLink="/" id="logo">
+      <h1><span>TTS</span> Bank</h1>
+    </a>
+  </div>
+  <div class="menuicon">
+    <i id="menuicon" class="fas fa-chevron-circle-down"> <span>MENU</span></i>
+  </div>
+  <div class="menu" id="menu">
+    <ul>
+      <li *ngIf="!isLoggedIn"><a routerLink="/home" id="Home">Home</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/transfer-money" id="transfer_money">Transfer Money</a></li>
+      <li *ngIf="isLoggedIn"><a routerLink="/transfer-log" id="transfer_log">Transaction Log</a></li>
+      <li *ngIf="isLoggedIn" class="dropdown">
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Request
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li><a class="dropdown-item" routerLink="/loan-request">Loan Request</a></li>
+            <li><a class="dropdown-item" routerLink="/checkbook-request">Checkbook Request</a></li>
+            <li><a class="dropdown-item" routerLink="/creditcard">Credit Card Request</a></li>
+          </ul>
+        </div>
+      </li>
+      <li><a routerLink="/contact" id="contact">Contact</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/create-user" id="create-user">Create Account</a></li>
+      <li *ngIf="!isLoggedIn"><a routerLink="/login" id="login">Login</a></li>
+      <li *ngIf="isLoggedIn"><span class="white-text">{{ userName }}</span></li>
+      <li *ngIf="isLoggedIn"><a class="white-text" (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</div>
+<div class="topspace"></div>

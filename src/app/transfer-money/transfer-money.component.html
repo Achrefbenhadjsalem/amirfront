@@ -1,0 +1,42 @@
+<div class="cover"></div>
+
+<h1>TRANSFER MONEY</h1>
+<div class="transfer-money">
+  <div class="users-container">
+    <div class="form">
+      <form [formGroup]="transferForm" (ngSubmit)="confirmTransfer()">
+        <div class="form-group">
+          <label for="cin" class="label">CIN:</label>
+          <input type="number" id="cin" formControlName="cin" placeholder="CIN" class="input">
+          <div *ngIf="transferForm.get('cin')!.errors && transferForm.get('cin')!.touched" class="text-danger">
+            CIN is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="name" class="label">NAME:</label>
+          <input type="text" id="name" formControlName="name" placeholder="NAME" class="input">
+          <div *ngIf="transferForm.get('name')!.errors && transferForm.get('name')!.touched" class="text-danger">
+            Name is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="rib" class="label">RIB:</label>
+          <input type="number" id="rib" formControlName="rib" placeholder="RIB" class="input">
+          <div *ngIf="transferForm.get('rib')!.errors && transferForm.get('rib')!.touched" class="text-danger">
+            RIB is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="amount" class="label">AMOUNT:</label>
+          <input type="number" id="amount" formControlName="amount" placeholder="AMOUNT" class="input">
+          <div *ngIf="transferForm.get('amount')!.errors && transferForm.get('amount')!.touched" class="text-danger">
+            Amount is required
+          </div>
+        </div>
+
+        <button type="submit" class="button">CONFIRM TRANSFER</button>
+      </form>
+      <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+    </div>
+  </div>
+</div>
