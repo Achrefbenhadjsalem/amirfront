@@ -5,4 +5,5 @@ export interface CreditCardRequest {
     phoneNumber: string;
     annualRevenue: number;
     adress: string;
+    statu: string; 
   }

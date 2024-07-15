@@ -1,5 +1,7 @@
+<!-- Inclure le script Font Awesome (dans l'en-tête si possible) -->
 <script src="https://kit.fontawesome.com/095e7acecf.js" crossorigin="anonymous"></script>
 
+<!-- Structure du composant -->
 <nav>
     <div class="sidebar">
         <ul class="sidebar_items">
@@ -7,13 +9,13 @@
                 <i class="fas fa-bars"></i> <!-- Icône de menu hamburger -->
             </li>
             <li class="item">
-                <a href="#section1"><span class="nombres">Create account demandes</span></a>
+                <a href="#section1"><span class="nombres">Create Account Requests</span></a>
             </li>
             <li class="item">
-                <a href="#section2"><span class="nombres">Modifie account demandes</span></a>
+                <a href="#section2"><span class="nombres">Modify Account Requests</span></a>
             </li>
             <li class="item">
-                <a href="#section3"><span class="nombres">Desactivate account demandes</span></a>
+                <a href="#section3"><span class="nombres">Deactivate Account Requests</span></a>
             </li>
         </ul>
         <ul class="logout">
@@ -26,7 +28,10 @@
     </div>
 </nav>
 
+<!-- Conteneur principal des tables -->
 <div class="table-container" style="margin-left: 250px;">
+
+    <!-- Tableau pour les demandes de création de compte -->
     <h2 id="section1">Create Account Requests</h2>
     <table id="table1" class="table">
         <thead>
@@ -48,9 +53,11 @@
                     <button class="btn btn-refuse">Refuse</button>
                 </td>
             </tr>
+            <!-- Ajoutez d'autres lignes si nécessaire -->
         </tbody>
     </table>
 
+    <!-- Tableau pour les demandes de modification de compte -->
     <h2 id="section2">Modify Account Requests</h2>
     <table id="table2" class="table">
         <thead>
@@ -73,9 +80,11 @@
                     <button class="btn btn-refuse">Refuse</button>
                 </td>
             </tr>
+            <!-- Ajoutez d'autres lignes si nécessaire -->
         </tbody>
     </table>
 
+    <!-- Tableau pour les demandes de désactivation de compte -->
     <h2 id="section3">Deactivate Account Requests</h2>
     <table id="table3" class="table">
         <thead>
@@ -98,7 +107,45 @@
                     <button class="btn btn-refuse">Refuse</button>
                 </td>
             </tr>
+            <!-- Ajoutez d'autres lignes si nécessaire -->
+        </tbody>
+    </table>
+
+    <!-- Tableau pour les demandes de cartes de crédit -->
+    <h2 id="section4">Credit Card Requests</h2>
+    <table id="table4" class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Annual Revenue</th>
+                <th scope="col">Address</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of creditCardRequests">
+                <td>{{ request.idCreditCard }}</td>
+                <td>{{ request.fullname }}</td>
+                <td>{{ request.email }}</td>
+                <td>{{ request.phoneNumber }}</td>
+                <td>{{ request.annualRevenue }}</td>
+                <td>{{ request.adress }}</td>
+                <td>
+                    <!-- Utilisation d'une classe conditionnelle pour le style -->
+                    <span [class.accepted]="request.statu === 'Accepté'" [class.refused]="request.statu === 'Refusé'">
+                        {{ request.statu }}
+                    </span>
+                </td>
+                <td>
+                    <!-- Utilisation d'un bouton désactivé après l'acceptation ou le refus -->
+                    <button class="btn btn-accept" (click)="acceptRequest(request)" [disabled]="request.statu === 'Accepté'">Accept</button>
+                    <button class="btn btn-refuse" (click)="refuseRequest(request)" [disabled]="request.statu === 'Refusé'">Refuse</button>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>
-

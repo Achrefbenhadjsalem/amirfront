@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreditCardRequestService } from '../Les Services/credit-card-request.service';
 import { CreditCardRequest } from '../les classes/CreditCardRequest';
 
-
 @Component({
   selector: 'app-creditcard',
   templateUrl: './creditcard.component.html',
@@ -28,7 +27,10 @@ export class CreditcardComponent implements OnInit {
 
   onSubmit(): void {
     if (this.creditCardForm.valid) {
-      const request: CreditCardRequest = this.creditCardForm.value;
+      const request: CreditCardRequest = {
+        ...this.creditCardForm.value,
+        statu: 'En cours' // Default status set here
+      };
 
       this.creditCardService.addCreditCardRequest(request).subscribe(
         (response) => {
