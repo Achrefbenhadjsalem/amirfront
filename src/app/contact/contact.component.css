@@ -173,4 +173,13 @@ body, html {
     height: auto; /* Permettre au body de s'ajuster à la taille du contenu */
     overflow-y: scroll; /* Permettre le défilement vertical */
   }
-  
+  .success-message {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #4CAF50;
+    background-color: #DFF2BF;
+    color: #4CAF50;
+    font-size: 1.2em;
+    border-radius: 5px;
+    text-align: center;
+  }

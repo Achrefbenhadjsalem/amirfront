@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ContactUsService } from '../Les Services/contact-us.service';
+import { ContactUs } from '../les classes/ContactUs';
 
 @Component({
   selector: 'app-contact',
@@ -7,17 +9,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
-setSubjects(arg0: string) {
-throw new Error('Method not implemented.');
-}
-  
-  contactForm: FormGroup;
-  showOptions: boolean = false;
-subjects: any;
 
-  constructor(private formBuilder: FormBuilder) {
+  contactForm: FormGroup;
+  successMessage: string = '';
+  isFormSubmitted: boolean = false;
+
+  constructor(private formBuilder: FormBuilder, private contactUsService: ContactUsService) {
     this.contactForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      fullname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       subject: ['', Validators.required],
       message: ['', Validators.required]
@@ -26,28 +25,28 @@ subjects: any;
 
   ngOnInit(): void {}
 
-  selectSubject(subject: string): void {
-    this.contactForm.get('subject')!.setValue(subject);
-    this.showOptions = false;
-  }
-
-  onInputBlur(): void {
-    this.showOptions = false;
-  }
-
   onSubmit(): void {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
-      // Ici, tu peux soumettre les données du formulaire à ton backend ou effectuer d'autres actions nécessaires
+      const contactUsData: ContactUs = this.contactForm.value;
+      this.contactUsService.addContactUs(contactUsData).subscribe(
+        (response) => {
+          console.log('Contact Us request added successfully', response);
+          this.successMessage = 'Your contact request has been successfully submitted.';
+          this.isFormSubmitted = true;
+          this.contactForm.reset();
+        },
+        (error) => {
+          console.error('Error adding contact us request', error);
+        }
+      );
     } else {
-      alert('Veuillez remplir correctement le formulaire avant de soumettre.');
+      console.error('Invalid form');
     }
   }
-  
 
   // Méthodes pour accéder facilement aux contrôles du formulaire dans le template HTML
-  public get nameControl() {
-    return this.contactForm.get('name')!;
+  public get fullnameControl() {
+    return this.contactForm.get('fullname')!;
   }
 
   public get emailControl() {

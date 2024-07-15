@@ -5,45 +5,48 @@
     <div class="credit-card-container">
         <div class="message-form">
             <div class="form">
-                <form >
+                <form [formGroup]="creditCardForm" (ngSubmit)="onSubmit()"> 
                     <div class="form-group">
-                        <label for="fullName" class="label">Full Name:</label>
-                        <input id="fullName" formControlName="fullName" type="text" class="input" placeholder="Nom complet">
-                        <div *ngIf="creditCardForm.get('fullName')!.errors && creditCardForm.get('fullName')!.touched" class="text-danger">
+                        <label for="fullname" class="label">Full Name:</label>
+                        <input id="fullname" formControlName="fullname" type="text" class="input" placeholder="Nom complet">
+                        <div *ngIf="fullnameControl?.errors && fullnameControl?.touched" class="text-danger">
                             Nom complet est requis
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="email" class="label">Email:</label>
                         <input id="email" formControlName="email" type="email" class="input" placeholder="Email">
-                        <div *ngIf="creditCardForm.get('email')!.errors && creditCardForm.get('email')!.touched" class="text-danger">
+                        <div *ngIf="emailControl?.errors && emailControl?.touched" class="text-danger">
                             Veuillez entrer un email valide
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="phone" class="label">Phone Number:</label>
-                        <input id="phone" formControlName="phone" type="text" class="input" placeholder="Téléphone">
-                        <div *ngIf="creditCardForm.get('phone')!.errors && creditCardForm.get('phone')!.touched" class="text-danger">
-                            Téléphone est requis
+                        <label for="phoneNumber" class="label">phoneNumber Number:</label>
+                        <input id="phoneNumber" formControlName="phoneNumber" type="text" class="input" placeholder="TéléphoneNumber">
+                        <div *ngIf="phoneNumberControl?.errors && phoneNumberControl?.touched" class="text-danger">
+                            TéléphoneNumber est requis
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="annualIncome" class="label">Annual revenue:</label>
-                        <input id="annualIncome" formControlName="annualIncome" type="number" class="input" placeholder="Revenu annuel">
-                        <div *ngIf="creditCardForm.get('annualIncome')!.errors && creditCardForm.get('annualIncome')!.touched" class="text-danger">
+                        <label for="annualRevenue" class="label">Annual revenue:</label>
+                        <input id="annualRevenue" formControlName="annualRevenue" type="number" class="input" placeholder="Revenu annuel">
+                        <div *ngIf="annualRevenueControl?.errors && annualRevenueControl?.touched" class="text-danger">
                             Revenu annuel est requis
                         </div>
                     </div>
                     <div class="form-group">
-                        <label for="address" class="label">Adress:</label>
-                        <input id="address" formControlName="address" type="text" class="input" placeholder="Adresse">
-                        <div *ngIf="creditCardForm.get('address')!.errors && creditCardForm.get('address')!.touched" class="text-danger">
+                        <label for="adress" class="label">adress:</label>
+                        <input id="adress" formControlName="adress" type="text" class="input" placeholder="Adresse">
+                        <div *ngIf="adressControl?.errors && adressControl?.touched" class="text-danger">
                             Adresse est requise
                         </div>
                     </div>
                     <button type="submit" class="button">Submit</button>
                 </form>
             </div>
+        </div>
+        <div *ngIf="isFormSubmitted" class="success-message">
+            {{ successMessage }}
         </div>
     </div>
 </div>

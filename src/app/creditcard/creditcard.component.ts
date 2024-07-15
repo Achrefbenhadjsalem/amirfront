@@ -1,32 +1,68 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CreditCardRequestService } from '../Les Services/credit-card-request.service';
+import { CreditCardRequest } from '../les classes/CreditCardRequest';
+
 
 @Component({
   selector: 'app-creditcard',
   templateUrl: './creditcard.component.html',
   styleUrls: ['./creditcard.component.css']
 })
-export class CreditcardComponent implements OnInit{
-  creditCardForm!: FormGroup; // Assurez-vous que creditCardForm est correctement déclaré
+export class CreditcardComponent implements OnInit {
+  creditCardForm!: FormGroup;
+  successMessage: string = '';
+  isFormSubmitted: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private creditCardService: CreditCardRequestService) { }
 
   ngOnInit(): void {
     this.creditCardForm = this.fb.group({
-      fullName: ['', Validators.required],
+      fullname: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required],
-      annualIncome: ['', Validators.required],
-      address: ['', Validators.required]
+      phoneNumber: ['', Validators.required],
+      annualRevenue: ['', Validators.required],
+      adress: ['', Validators.required]
     });
   }
 
   onSubmit(): void {
     if (this.creditCardForm.valid) {
-      // Logique pour envoyer le formulaire au serveur
-      console.log(this.creditCardForm.value);
+      const request: CreditCardRequest = this.creditCardForm.value;
+
+      this.creditCardService.addCreditCardRequest(request).subscribe(
+        (response) => {
+          console.log('Credit card request added successfully', response);
+          this.successMessage = 'Your credit card request has been successfully submitted.';
+          this.isFormSubmitted = true;
+          this.creditCardForm.reset(); // Optionally reset the form after successful submission
+        },
+        (error) => {
+          console.error('Error adding credit card request', error);
+        }
+      );
     } else {
-      console.error('Formulaire invalide');
+      console.error('Invalid form');
     }
+  }
+
+  get fullnameControl() {
+    return this.creditCardForm.get('fullname');
+  }
+
+  get emailControl() {
+    return this.creditCardForm.get('email');
+  }
+
+  get phoneNumberControl() {
+    return this.creditCardForm.get('phoneNumber');
+  }
+
+  get annualRevenueControl() {
+    return this.creditCardForm.get('annualRevenue');
+  }
+
+  get adressControl() {
+    return this.creditCardForm.get('adress');
   }
 }

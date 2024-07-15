@@ -19,7 +19,7 @@ export class UserService {
   }
 }
   /*deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.baseUrl}/${id}`);
+    return this.http.delete(`${hythis.baseUrl}/${id}`);
   }
 
   updateUser(id: number, updatedUser: User): Observable<any> {

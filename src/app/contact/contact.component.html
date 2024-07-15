@@ -1,58 +1,53 @@
 <h1 class="title">Contact Us</h1>
 
-
 <div class="contact">
-        <div class="cover"></div>
-            <div class="contact-container">
-                <div class="message-form">
-                    <div class="form">
-                        <form>
-                            <div class="form-group">
-                            <label for="name" class="label">Full Name :</label>
-                            <input type="text" id="name" formControlName="name" placeholder="Nom" class="input">
-                            <div *ngIf="nameControl.invalid && (nameControl.dirty || nameControl.touched)"
-                                class="text-danger">
-                                Le nom est requis
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="label">Email :</label>
-                            <input type="email" id="email" formControlName="email" placeholder="Email" class="input">
-                            <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)"
-                                class="text-danger">
-                                Veuillez entrer une adresse email valide
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="label">Subject :</label>
-                            <div class="box">
-                                <div class="custom-select-container">
-                                    <select class="custom-button">
-                                        <option>Account Modification </option>
-                                        <option>Account Desactivation</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div *ngIf="subjectControl.invalid && (subjectControl.dirty || subjectControl.touched)"
-                                class="text-danger">
-                                Subject is required
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="label">Message :</label>
-                            <textarea id="message" formControlName="message" placeholder="Message"
-                                class="input"></textarea>
-                            <div *ngIf="messageControl.invalid && (messageControl.dirty || messageControl.touched)"
-                                class="text-danger">
-                                
-                                Message is required
-                            </div>
-                        </div>
-                        <button type="submit" class="button">Submit</button>
-                    </form>
-                </div>
+  <div class="cover"></div>
+  <div class="contact-container">
+    <div *ngIf="!isFormSubmitted" class="message-form">
+      <div class="form">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="fullname" class="label">Full Name :</label>
+            <input type="text" id="fullname" formControlName="fullname" placeholder="Nom" class="input">
+            <div *ngIf="fullnameControl.invalid && (fullnameControl.dirty || fullnameControl.touched)" class="text-danger">
+              Le nom est requis
             </div>
-        </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="label">Email :</label>
+            <input type="email" id="email" formControlName="email" placeholder="Email" class="input">
+            <div *ngIf="emailControl.invalid && (emailControl.dirty || emailControl.touched)" class="text-danger">
+              Veuillez entrer une adresse email valide
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="label">Subject :</label>
+            <div class="box">
+              <div class="custom-select-container">
+                <select class="custom-button" formControlName="subject">
+                  <option value="AccountModifications">Account Modification</option>
+                  <option value="AccountDesactivation">Account Desactivation</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+            <div *ngIf="subjectControl.invalid && (subjectControl.dirty || subjectControl.touched)" class="text-danger">
+              Subject is required
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="message" class="label">Message :</label>
+            <textarea id="message" formControlName="message" placeholder="Message" class="input"></textarea>
+            <div *ngIf="messageControl.invalid && (messageControl.dirty || messageControl.touched)" class="text-danger">
+              Message is required
+            </div>
+          </div>
+          <button type="submit" class="button">Submit</button>
+        </form>
+      </div>
     </div>
-    
+    <div *ngIf="isFormSubmitted" class="success-message">
+      {{ successMessage }}
+    </div>
+  </div>
+</div>
